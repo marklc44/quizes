@@ -17,7 +17,8 @@ Person.prototype.wakeUp = function() {
   this.sleeping = false;
 };
 
-function Student() {
+function Student(name, height, age) {
+  Person.call(this, name, height, age)
   this.studying = false;
 }
 
@@ -26,7 +27,7 @@ var inherit = function(Child, Parent) {
   Child.prototype.constructor = Child;
 };
 
-inherit(Student, Parent);
+inherit(Student, Person);
 
 Student.prototype.study = function() {
   this.studying = true;
